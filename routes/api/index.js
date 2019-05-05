@@ -1,7 +1,7 @@
-const router = require('express').Router();
-const bookRoutes = require('./book');
+const router = require("express").Router();
+const booksRoutes = require("./books");
 
-// Import all the of routes into one file
-router.use('/book', bookRoutes);
+// Books routes
+router.use("/books", booksRoutes);
 
 module.exports = router;

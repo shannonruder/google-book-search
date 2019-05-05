@@ -1,23 +1,26 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Nav } from './components/Nav';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Search from "./pages/Search";
+import Saved from "./pages/Saved";
+import NavTabs from "./components/NavTabs";
+import "./App.css";
 
-import Book from './pages/Book';
-import Detail from './pages/Detail';
-import NoMatch from './pages/NoMatch';
-
-const App = () => (
-  <Router>
-    <div>
-      <Nav />
-      <Switch>
-        <Route exact path="/" component={Book} />
-        <Route exact path="/book" component={Book} />
-        <Route exact path="/book/:id" component={Detail} />
-        <Route component={NoMatch} />
-      </Switch>
-    </div>
-  </Router>
-)
+class App extends Component {
+  render() {
+    return (
+      <Router>
+      <div>
+        <NavTabs/>
+        <Switch>
+          <Route exact path="/" component={Search} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/saved" component={Saved} />
+        </Switch>
+      </div>
+    </Router>
+    );
+  }
+}
 
 export default App;
